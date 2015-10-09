@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="styelsheet" href="{% static 'composers_profile/css/jquery-ui.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'composers_profile/css/jquery-ui.structure.min.css' %}" />
+        <link rel="styelsheet" href="{% static 'composers_profile/css/jquery-ui.theme.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'composers_profile/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'composers_profile/css/bootstrap-theme.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'composers_profile/css/composers_profile.css' %}" />
+        <script src="{% static 'composers_profile/js/jquery-1.11.3.min.js' %}"></script>
+        <script src="{% static 'composers_profile/js/jquery-ui.min.js' %}"></script>
+        <script src="{% static 'composers_profile/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'composers_profile/js/validator.min.js' %}"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="660478359243-nmv03t1i5pr2p1l1its676503gghvje0.apps.googleusercontent.com">
+        <script>
+            function signOut() {
+                var googleauth = gapi.auth2.init();
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                    auth2.disconnect();
+                    console.log('User signed out.');
+                });
+            }
+        </script>
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body class="composers_base_body">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <img src={% static 'composers_profile/images/music_composer.png' %} />
+            <a href="{% url 'composers_profile:show_list' %}" class="btn btn-primary composers_btn" role="button">
+                Show List of Music Composers
+            </a>
+            <a href="{% url 'logout_view' %}" class="btn btn-primary composers_btn" role="button">
+                Logout
+            </a>
+            <a onclick="signOut()" class="btn btn-primary composers_btn" role="button">Sign out With google</a>
+        </nav>
+        {% block body %}
+        {% endblock %}
+        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        </nav>
+    </body>
+</html>

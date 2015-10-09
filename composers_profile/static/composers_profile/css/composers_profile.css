@@ -1,0 +1,94 @@
+.base_body{
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background-color: whitesmoke;
+}
+.forgotpassword_link{
+    float: right;
+    font-size: 100%;
+    position: relative;
+    top:-10px;
+    color: #428bca;
+}
+.username{
+    margin-bottom: 20px;
+}
+.loginform{
+    margin-left: 398px;
+    margin-top: 100px;
+}
+.show_list{
+    margin-top: 100px;
+}
+.composers_base_body{
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
+.submit_composer{
+    padding-bottom: 80px;
+}
+.composers_create_form{
+    margin-top: 70px;
+    margin-left: 100px;
+    margin-left: 200px;
+}
+.music_input{
+    padding-left: 16px !important;
+    padding-right: 11px !important;
+}
+.server_errors{
+    padding-left: 23px;
+    padding-right: 25px;
+}
+.delete{
+    cursor: pointer;
+}
+.show_list_table{
+    margin-left: -70px;
+}
+.forgotpasswordform{
+    margin-top: 150px;
+    margin-left: 50px;
+}
+.loginlink{
+    float: right;
+    margin-right: 53px;
+    width: 82px;
+    margin-top: 31px;
+}
+.music_logo{
+    width: 190px;
+}
+.login_navbar{
+    height: 100px;
+}
+.resetpwd_row{
+    margin-top: 10px;
+}
+.composers_btn{
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+.show_composer_details{
+    background-color: whitesmoke;
+}
+.show_page{
+    margin-top: 50px;
+}
+.composer_profile{
+    margin-left: 20px;
+}
+.music_image{
+    width:600px;
+}
+.music_image_div{
+    margin-top: -21px;
+}
+.atif{
+    margin-top: -28px;
+    width: 603px !important;
+}
+.show_map{
+    width: 100% !important;
+}

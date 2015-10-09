@@ -1,0 +1,194 @@
+{% extends "composers_base.html" %}
+{% load staticfiles %}
+{% block body %}
+    <div class="composers_create_form">
+        <form class="form-horizontal" role="form" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    First Name:
+                </label>
+                <div class="col-sm-7">
+                    {{ form.first_name }}
+                </div>
+            </div>
+            {% if form.first_name.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-7 alert alert-danger">
+                    {{ form.first_name.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    Last Name:
+                </label>
+                <div class="col-sm-7">
+                    {{ form.last_name }}
+                </div>
+            </div>
+            {% if form.last_name.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-7 alert alert-danger">
+                        {{ form.last_name.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    Gender:
+                </label>
+                <div class="col-sm-7">
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="M" {% if composer.gender == 'M' %}checked{% endif %} />Male
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" value="F" {% if composer.gender == 'F' %}checked{% endif %} />Female
+                    </label>
+                </div>
+            </div>
+            {% if form.gender.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="alert alert-danger col-sm-7">
+                        {{ form.gender.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    Address:
+                </label>
+                <div class="col-sm-7">
+                    {{ form.address }}
+                </div>
+            </div>
+            {% if form.address.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-7 alert alert-danger">
+                        {{ form.address.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    Latitude:
+                </label>
+                <div class="col-sm-7">
+                    <input class="form-control" id="id_latitude" name="latitude" step="any" type="text" value="{% if form.latitude.value %}{{ form.latitude.value }}{% endif %}">
+                </div>
+            </div>
+            {% if form.latitude.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-7 alert alert-danger">
+                        {{ form.latitude.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    Longitude:
+                </label>
+                <div class="col-sm-7">
+                    <input class="form-control" id="id_longitude" name="longitude" step="any" type="text" value="{% if form.longitude.value %}{{ form.longitude.value }}{% endif %}" />
+                </div>
+            </div>
+            {% if form.longitude.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-7 alert alert-danger">
+                        {{ form.longitude.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    Current Song:
+                </label>
+                <div class="input-group col-sm-7 music_input">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-music"></i>
+                    </span>
+                    {{ form.current_song }}
+                </div>
+            </div>
+            {% if form.current_song.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-7 alert alert-danger">
+                        {{ form.current_song.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    Hit Songs:
+                </label>
+                <div class="col-sm-7">
+                    {{ form.hit_songs }}
+                </div>
+            </div>
+            {% if form.hit_songs.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-7 alert alert-danger">
+                        {{ form.hit_songs.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    Education:
+                </label>
+                <div class="col-sm-7">
+                    {{ form.education }}
+                </div>
+            </div>
+            {% if form.education.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-7 alert alert-danger">
+                        {{ form.education.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    Summary:
+                </label>
+                <div class="col-sm-7">
+                    {{ form.summary }}
+                </div>
+            </div>
+            {% if form.summary.errors %}
+                <div class="form-group server_errors">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-7 alert alert-danger">
+                        {{ form.summary.errors }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group submit_composer">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-7">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

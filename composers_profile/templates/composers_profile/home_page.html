@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+    <!-- // <script src="https://apis.google.com/js/platform.js" async defer></script>
+    // <meta name="google-signin-scope" content="profile email">
+    // <meta name="google-signin-client_id" content="660478359243-nmv03t1i5pr2p1l1its676503gghvje0.apps.googleusercontent.com"> -->
+{% endblock %}
+{% block body %}
+// <script>
+//     function onSignIn(googleUser){
+//         var profile = googleUser.getBasicProfile();
+//         var email = profile.getEmail();
+//         console.log(profile)
+//         console.log(email)
+//         $.ajax({
+//             type: 'POST',
+//             url: '/',
+//             data: {
+//                 csrfmiddlewaretoken: '{{ csrf_token }}',
+//                 email: email
+//             },
+//             success: function(data){
+//             }
+//         });
+//     }
+// </script>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container col-sm-5 loginform">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Sign In
+                    </div>
+                    <div class="forgotpassword_link">
+                        <a href="{% url 'forgotpassword' %}" class="info" style="color:white;">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="input-group username">
+                        <span class="input-group-addon">
+                             <i class="glyphicon glyphicon-user"></i>
+                        </span>
+                        {{ form.username }}
+                    </div>
+                    {% if form.username.errors %}
+                        <div class="alert alert-danger">
+                            {{ form.username.errors }}
+                        </div>
+                    {% endif %}
+                    <div class="input-group password">
+                        <span class="input-group-addon">
+                             <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        {{ form.password }}
+                    </div>
+                    {% if form.password.errors %}
+                        <div class="alert alert-danger">
+                            {{ form.password.errors}}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class ="panel-footer">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                    <a class="btn btn-primary" href="{% url 'loginwithgoogle' %}">Login With Google</a>
+                    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
