@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'composers_profile',
-    'wkhtmltopdf',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,7 +91,7 @@ STATICFILES_DIRS = (
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'vimugdhabtr01@gmail.com'
-EMAIL_HOST_PASSWORD =  'batra7206514443'
+EMAIL_HOST_USER = 'Your email address'
+EMAIL_HOST_PASSWORD =  'your password'
 
 LOGIN_URL = "/"
